@@ -59,10 +59,11 @@ class NhdData:
                 in_class_as_char = 'B'
             elif in_class_as_num >= 0:
                 in_class_as_char = 'A'
+
+            return in_class_as_char
         except ValueError:
             in_class_as_char = ""
-        finally:
-            return in_class_as_char
+            
 
     def closest_flowline_utm(self, x_coord: float, y_coord: float, utm_zone=None, table="nhd_flowline"):
         """Find the closest flowline."""
