@@ -4,7 +4,6 @@ Get data from the census database
 import psycopg2
 
 
-
 class CensusData:
     """Collect data from the Census Database"""
 
@@ -210,6 +209,7 @@ if __name__ == '__main__':
     start_time = time.perf_counter()
 
     x, y = (-77.811651, 39.506993)
+
     census = CensusData()
 
     print("BLOCK:", census.get_census_block_utm(x_coord=x, y_coord=y, utm_zone=18, table='production.census_blocks_utm_18'))
@@ -222,5 +222,3 @@ if __name__ == '__main__':
     end_time = time.perf_counter()
     elapsed_time = end_time - start_time
     print(f"Time taken: {elapsed_time:.6f} seconds")
-
-    
