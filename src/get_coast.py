@@ -117,34 +117,32 @@ class CoastalData:
 if __name__ == '__main__':
     import time
 
-    start_time = time.perf_counter()
+    x, y = (-77.811651, 39.506993)
+    utm_zone = 18
 
     coastal = CoastalData()
 
-    x, y = (-68.261936, 44.293426)
-    utm_zone = 19
+    # Outside a distance to the coast
+    start_time = time.perf_counter() 
     print("IN UTM:", coastal.get_coastal_info_utm(
         x_coord=x,
         y_coord=y,
         utm_zone=utm_zone,
         table='production.coast_utm_' + str(utm_zone) + '_view',
         distance=40233.6))
-
     end_time = time.perf_counter()
     elapsed_time = end_time - start_time
     print(f"Time taken: {elapsed_time:.6f} seconds")
 
-
+    # Within a distance to the coast
+    x, y = (-75.14577990, 38.26550297)
     start_time = time.perf_counter()
-    x, y = (-67.284,5.763)
-    utm_zone = 19
     print("OUT UTM:", coastal.get_coastal_info_utm(
         x_coord=x,
         y_coord=y,
         utm_zone=utm_zone,
         table='production.coast_utm_' + str(utm_zone) + '_view',
         distance=40233.6))
-
     end_time = time.perf_counter()
     elapsed_time = end_time - start_time
     print(f"Time taken: {elapsed_time:.6f} seconds")
